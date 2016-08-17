@@ -1,4 +1,4 @@
-package krek.bot.main;
+package krek.bot.giveaway;
 
 import java.util.LinkedList;
 import java.util.Random;
@@ -12,23 +12,31 @@ public class GiveawayEvent{
 	private boolean status;
 	private LinkedList<IUser> participants = new LinkedList<IUser>();
 	
-	public GiveawayEvent(){
-		
-	}
+	public GiveawayEvent(){ }
 	
 	public GiveawayEvent(boolean status){
+
 		this.status = status;
 	}
 	
 	public void setStatus(boolean status){
+
 		this.status = status;
 	}
 	
 	public boolean getStatus(){
+
 		return status;
+	}
+
+	public boolean isActive(){
+		if(getStatus())
+			return true;
+		return false;
 	}
 	
 	public void addParticipant(IUser participant){
+
 		participants.add(participant);
 	}
 	
