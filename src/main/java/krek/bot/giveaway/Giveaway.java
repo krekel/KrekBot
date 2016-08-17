@@ -1,4 +1,4 @@
-package krek.bot.main;
+package krek.bot.giveaway;
 
 import java.util.LinkedList;
 
