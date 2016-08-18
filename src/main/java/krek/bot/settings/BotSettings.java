@@ -11,10 +11,9 @@ import sx.blah.discord.util.RateLimitException;
 public class BotSettings {
 
 	public static void changeBotStatus(IDiscordClient client, Status botStatus){
+
 		client.changeStatus(botStatus);
 	}
-	
-	
 	
 	public static void changeBotName(IDiscordClient client, String name) throws DiscordException, RateLimitException{
 		client.changeUsername(name);

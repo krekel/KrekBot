@@ -12,7 +12,7 @@ import sx.blah.discord.handle.obj.IUser;
  */
 public class CommandEvent extends Event{
 
-    private final static String[] COMMAND_LIST = {"!hi", "!daniel", "!fernan", "!wiso", "!role", "!help", "!weather", "!admin", "!status <bot status>", "!botname <name>", "!startraffle", "!endraffle"};
+    private final static String[] COMMAND_LIST = {"!hi", "!role", "!help", "!weather", "!status <bot status>", "!botname <name>", "!startraffle", "!endraffle"};
 
 
     public static String getCommandList(){
