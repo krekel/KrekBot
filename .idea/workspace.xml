@@ -60,7 +60,7 @@
       <file leaf-file-name="GiveawayHandler.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/krek/bot/giveaway/GiveawayHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-361">
+            <state relative-caret-position="-166">
               <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -496,7 +496,14 @@
       <option name="project" value="LOCAL" />
       <updated>1471571902300</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Misc&#10;&#10;&#10;">
+      <created>1471572719215</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1471572719215</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -982,7 +989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/krek/bot/giveaway/GiveawayHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-361">
+        <state relative-caret-position="-166">
           <caret line="23" column="48" selection-start-line="23" selection-start-column="48" selection-end-line="23" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
