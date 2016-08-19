@@ -14,9 +14,6 @@ public class Server {
 
     private static IGuild guildID;
 
-    public Server(IGuild guildID){
-        this.guildID = guildID;
-    }
 
     public IGuild getGuildID(){
         return guildID;

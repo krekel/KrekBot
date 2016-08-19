@@ -11,8 +11,7 @@ public class GiveawayEvent{
 
 	private boolean status;
 	private LinkedList<IUser> participants = new LinkedList<IUser>();
-	
-	public GiveawayEvent(){ }
+    private int numOfParticipants = 0;
 	
 	public GiveawayEvent(boolean status){
 
@@ -23,6 +22,10 @@ public class GiveawayEvent{
 
 		this.status = status;
 	}
+
+    public int getNumOfParticipants(){
+        return numOfParticipants;
+    }
 	
 	public boolean getStatus(){
 
@@ -30,14 +33,15 @@ public class GiveawayEvent{
 	}
 
 	public boolean isActive(){
-		if(getStatus())
-			return true;
-		return false;
-	}
+       return (this.status);
+    }
 	
 	public void addParticipant(IUser participant){
 
-		participants.add(participant);
+        if(!isParticipating(participant)) {
+            participants.add(participant);
+            numOfParticipants++;
+        }
 	}
 	
 	public IUser getWinner(){
@@ -50,7 +54,14 @@ public class GiveawayEvent{
 	
 	public void endGiveaway(){
 		this.status = false;
-		participants.clear();
 	}
-	
+
+	 // Allows one entry per User
+    private boolean isParticipating(IUser user){
+        for (IUser participant : participants)
+            if (participant.equals(user))
+                return true;
+        return false;
+    }
+
 }

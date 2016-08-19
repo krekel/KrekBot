@@ -35,9 +35,6 @@ public class CommandHandler{
         else if(content.equals("!role"))
             reply.withChannel(message.getChannel()).withContent(message.getAuthor() + "'s role(s) " + message.getAuthor().getRolesForGuild(message.getGuild())).build();
 
-//        else if(content.equals("!win") && giveaway.isActive())
-//            giveaway.addParticipant(message.getAuthor());
-
     }
 
     @EventSubscriber
@@ -56,9 +53,7 @@ public class CommandHandler{
                 String args = content.substring("!botname ".length());
                 BotSettings.changeBotName(KrekBot.getClient(), args);
 
-            } else if(content.equalsIgnoreCase("!startraffle"));
-
-            else if(content.equalsIgnoreCase("!endraffle"));
+            }
 
         }
 
