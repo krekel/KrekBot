@@ -38,10 +38,8 @@ public class GiveawayEvent{
 	
 	public void addParticipant(IUser participant){
 
-        if(!isParticipating(participant)) {
             participants.add(participant);
             numOfParticipants++;
-        }
 	}
 	
 	public IUser getWinner(){
@@ -57,7 +55,7 @@ public class GiveawayEvent{
 	}
 
 	 // Allows one entry per User
-    private boolean isParticipating(IUser user){
+    public boolean isParticipating(IUser user){
         for (IUser participant : participants)
             if (participant.equals(user))
                 return true;
