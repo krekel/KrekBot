@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fdf7e7fe-1b0e-4957-919d-c8156734b954" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/krek/bot/main/KrekBot.java" afterPath="$PROJECT_DIR$/src/main/java/krek/bot/main/KrekBot.java" />
     </list>
     <ignored path="KrekBot.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -490,7 +489,14 @@
       <option name="project" value="LOCAL" />
       <updated>1471567222088</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Misc&#10;&#10;&#10;">
+      <created>1471571902300</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1471571902300</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -592,7 +598,9 @@
     <MESSAGE value="Reworking the whole project in a way.&#10;Command Handler is coming along.&#10;Organized packages.&#10;" />
     <MESSAGE value="Rework:&#10;Command Handler changes(could be better).&#10;Guild/Role/Server class in progress.&#10;&#10;&#10;" />
     <MESSAGE value="Well... Giveaway is not working.&#10;Not even 90%.&#10;Exceptions are on the way.&#10;&#10;&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Well... Giveaway is not working.&#10;Not even 90%.&#10;Exceptions are on the way.&#10;&#10;&#10;" />
+    <MESSAGE value="&#10;&#10;&#10;" />
+    <MESSAGE value="Misc&#10;&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Misc&#10;&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
