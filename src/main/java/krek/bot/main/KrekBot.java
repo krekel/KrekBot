@@ -1,7 +1,6 @@
 package krek.bot.main;
 
 import krek.bot.command.CommandHandler;
-import org.ini4j.InvalidFileFormatException;
 import org.ini4j.Wini;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
@@ -12,13 +11,14 @@ import java.io.IOException;
 
 public class KrekBot {
 
-	static IDiscordClient client;
-    static String TOKEN;
+	public static IDiscordClient client;
+    private static String TOKEN;
 
 
 	public static void main(String[] args) {
+        getToken();
 		client = getClient();
-		client.getDispatcher().registerListener(new ReadyListener());
+		client.getDispatcher().registerListener(new actionListener());
 		client.getDispatcher().registerListener(new CommandHandler());
 	}
 
@@ -38,10 +38,9 @@ public class KrekBot {
 
     private static void getToken(){
         try {
-            Wini ini = new Wini(new File("C:\\KrekBot\\BotSettings.ini"));
+            Wini ini = new Wini(new File("C:\\Users\\Krekel\\workspace\\KrekBot\\BotSettings.ini"));
             TOKEN = ini.get("Credentials", "Token");
-        } catch (InvalidFileFormatException e) {
-            e.printStackTrace();
+			login(TOKEN);
         } catch (IOException e) {
             e.printStackTrace();
         }

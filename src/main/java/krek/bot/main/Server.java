@@ -1,10 +1,6 @@
 package krek.bot.main;
 
-import java.security.Permission;
-import java.util.EnumSet;
 import java.util.List;
-
-import sx.blah.discord.handle.impl.obj.Guild;
 import sx.blah.discord.handle.obj.*;
 
 /**
