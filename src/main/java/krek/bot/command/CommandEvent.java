@@ -21,13 +21,13 @@ public class CommandEvent extends Event{
                                                                             "!roll", "!flip", "!status <bot status>",
                                                                             "!botname <name>", "!startraffle", "!endraffle"};
     private String command;
-    private String[] args;
+    private String args;
     private IChannel channel;
     private IUser user;
     private IGuild guild;
     private IMessage message;
 
-    public CommandEvent(String command, String[] args, IChannel channel, IUser user, IGuild guild, IMessage message){
+    public CommandEvent(String command, String args, IChannel channel, IUser user, IGuild guild, IMessage message){
         this.command = command;
         this.args = args;
         this.channel = channel;
@@ -40,7 +40,7 @@ public class CommandEvent extends Event{
         return command;
     }
 
-    public String[] getArgs(){
+    public String getArgs(){
         return args;
     }
 

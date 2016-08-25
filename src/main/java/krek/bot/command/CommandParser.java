@@ -12,7 +12,7 @@ import sx.blah.discord.handle.obj.IMessage;
 public class CommandParser {
 
     private String command;
-    private String[] args = null;
+    private String args = null;
     private final String KEY = "!";
 
     @EventSubscriber
@@ -25,7 +25,7 @@ public class CommandParser {
 
             if(content.contains(" ")){
                 command = content.split(" ")[0];
-                args = content.substring(content.indexOf(' ') + 1).split(" ");
+                args = content.substring(content.indexOf(' ') + 1);
             } else {
                 command = content;
                 args = null;

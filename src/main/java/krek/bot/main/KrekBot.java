@@ -12,37 +12,37 @@ import java.io.IOException;
 
 public class KrekBot {
 
-	public static IDiscordClient client;
+    public static IDiscordClient client;
     private static String TOKEN;
 
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         getToken();
-		client = getClient();
-		client.getDispatcher().registerListener(new actionListener());
-		client.getDispatcher().registerListener(new CommandHandler());
-		client.getDispatcher().registerListener(new CommandParser());
-	}
+        client = getClient();
+        client.getDispatcher().registerListener(new actionListener());
+        client.getDispatcher().registerListener(new CommandHandler());
+        client.getDispatcher().registerListener(new CommandParser());
+    }
 
-	private static void login(String token) {
-		try {
-			client = new ClientBuilder().withToken(token).login();
-		} catch (DiscordException e){
-			System.out.println("Error while logging in.");
-			e.printStackTrace();
-		}
-	}
-	
-	public static IDiscordClient getClient(){
+    private static void login(String token) {
+        try {
+            client = new ClientBuilder().withToken(token).login();
+        } catch (DiscordException e) {
+            System.out.println("Error while logging in.");
+            e.printStackTrace();
+        }
+    }
+
+    public static IDiscordClient getClient() {
 
         return client;
-	}
+    }
 
-    private static void getToken(){
+    private static void getToken() {
         try {
             Wini ini = new Wini(new File("C:\\Users\\Krekel\\workspace\\KrekBot\\BotSettings.ini"));
             TOKEN = ini.get("Credentials", "Token");
-			login(TOKEN);
+            login(TOKEN);
         } catch (IOException e) {
             e.printStackTrace();
         }
