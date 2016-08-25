@@ -2,6 +2,7 @@ package krek.bot.main;
 
 import krek.bot.command.CommandHandler;
 import org.ini4j.Wini;
+import krek.bot.command.CommandParser;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.util.DiscordException;
@@ -20,6 +21,7 @@ public class KrekBot {
 		client = getClient();
 		client.getDispatcher().registerListener(new actionListener());
 		client.getDispatcher().registerListener(new CommandHandler());
+		client.getDispatcher().registerListener(new CommandParser());
 	}
 
 	private static void login(String token) {

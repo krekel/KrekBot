@@ -56,8 +56,5 @@ public class actionListener {
         Thread.sleep(2000);
         reply.withChannel(event.getChannel()).withContent("Result: " + event.getSideUp()).build();
     }
-
-
-    //////
 	
 }

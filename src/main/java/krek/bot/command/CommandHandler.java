@@ -5,10 +5,7 @@ import krek.bot.games.Dice;
 import krek.bot.main.KrekBot;
 import krek.bot.main.Server;
 import krek.bot.main.actionListener;
-import krek.bot.settings.BotSettings;
 import sx.blah.discord.api.events.EventSubscriber;
-import sx.blah.discord.handle.impl.events.MessageReceivedEvent;
-import sx.blah.discord.handle.obj.IMessage;
 import sx.blah.discord.handle.obj.Status;
 import sx.blah.discord.util.*;
 
@@ -20,70 +17,52 @@ public class CommandHandler{
 
 //    TODO Handle Exceptions
     @EventSubscriber
-	public void generalCommands(MessageReceivedEvent event) throws RateLimitException, DiscordException, MissingPermissionsException, InterruptedException {
+	public void generalCommands(CommandEvent event) throws RateLimitException, DiscordException, MissingPermissionsException, InterruptedException {
 
-        IMessage message = event.getMessage();
-        String content = message.getContent().toLowerCase();
+        if(event.isCommand("!hi"))
+            reply.withChannel(event.getChannel()).withContent(event.getUser() + ", Hello!").build();
 
-        if (content.equals("!hi"))
-            reply.withChannel(message.getChannel()).withContent(message.getAuthor() + ", Hello!").build();
+        if(event.isCommand("!help")) {
+            reply.withChannel(event.getChannel()).withContent(event.getUser() + " Commands").build();
+            reply.withChannel(event.getChannel()).withContent("```" + CommandEvent.getCommandList() + "```").build();
 
-        else if(content.equals("!help")){
-            reply.withChannel(message.getChannel()).withContent(message.getAuthor() + " Commands").build();
-            reply.withChannel(message.getChannel()).withContent("```" + CommandEvent.getCommandList() + "```").build();
+        } else if(event.isCommand("!role")) {
+            reply.withChannel(event.getChannel()).withContent(event.getUser()
+                    + "'s role(s) " + event.getUser().getRolesForGuild(event.getGuild())).build();
 
-        }
-        else if(content.equals("!role"))
-            reply.withChannel(message.getChannel()).withContent(message.getAuthor()
-                    + "'s role(s) " + message.getAuthor().getRolesForGuild(message.getGuild())).build();
+        }else if(event.isCommand("!info")){
+            reply.withChannel(event.getChannel()).withContent(CommandEvent.getInfo()).build();
 
-        else if(content.equals("!info"))
-            reply.withChannel(message.getChannel()).withContent(CommandEvent.getInfo()).build();
-
-        else if(content.contains("rip") || content.contains("RIP"))
-            reply.withChannel(message.getChannel()).withContent(":skull:").build();
-
-        else if(content.equals("!roll")){
-            KrekBot.client.getDispatcher().dispatch(new Dice(message.getChannel()));
+        }else if(event.isCommand("!roll")){
+            KrekBot.client.getDispatcher().dispatch(new Dice(event.getChannel()));
             System.out.println("Dice event dispatched.");
-        } else if(content.equals("!flip")){
-            KrekBot.client.getDispatcher().dispatch(new Coin(message.getChannel()));
-            System.out.println("Coin flip event dispatched.");
+
+        }else if(event.isCommand("!flip")){
+            KrekBot.client.getDispatcher().dispatch(new Coin(event.getChannel()));
+            System.out.println("Coin event dispatched.");
+
         }
-
-
 
     }
 
     @EventSubscriber
-    public void modCommands(MessageReceivedEvent event) throws RateLimitException, DiscordException, MissingPermissionsException {
+    public void modCommands(CommandEvent event) throws RateLimitException, DiscordException, MissingPermissionsException {
 
-        IMessage message = event.getMessage();
-        String content = message.getContent();
+        if(Server.isAdmin(event.getUser())) {
 
-        if(Server.isAdmin(message.getAuthor())) {
+            if (event.isCommand("!status"))
+                KrekBot.getClient().changeStatus(Status.game(event.getArgs().toString()));
 
-            if (content.startsWith("!status ")) {
-                String args = content.substring("!status ".length());
-                BotSettings.changeBotStatus(KrekBot.getClient(), Status.game(args));
+            else if (event.isCommand("!botname"))
+                KrekBot.getClient().changeUsername(event.getArgs().toString());
 
-            } else if (content.startsWith("!botname ")) {
-                String args = content.substring("!botname ".length());
-                BotSettings.changeBotName(KrekBot.getClient(), args);
-
-            } else if(content.equals("!clean")){
-                actionListener.msg.add(message);
+            } else if(event.isCommand("!clean")){
+                actionListener.msg.add(event.getMessage());
                 actionListener.msg.bulkDelete(actionListener.msg.copy());
             }
 
         }
 
 
-    } //modCommands()
+    }
 
-
-
-
-
-
-}
